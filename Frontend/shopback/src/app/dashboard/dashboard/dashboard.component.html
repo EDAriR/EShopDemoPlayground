@@ -1,0 +1,100 @@
+<mat-toolbar color="primary" class="demo-app-header">
+  <button mat-icon-button (click)="sideNav.toggle()">
+    <mat-icon>{{ sideNav.opened ? 'close' : 'menu' }}</mat-icon>
+  </button>
+
+  <span>SHOPLINE</span>
+
+  <!-- 在這之後的都會被推到右邊去 -->
+  <span class="toolbar-seprator"></span>
+
+  <button mat-icon-button [matMenuTriggerFor]="messageMenu" #menuTrigger="matMenuTrigger">
+    <mat-icon>message</mat-icon>
+  </button>
+  <mat-menu #messageMenu="matMenu">
+    <button mat-menu-item>最新訊息</button>
+    <button mat-menu-item>訊息設定</button>
+  </mat-menu>
+  <button mat-icon-button>
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="demo-app-container">
+  <mat-sidenav style="min-width: 200px;" class="demo-app-sidenav" #sideNav mode="push" (opened)="opened()"
+    (closed)="closed()">
+    <mat-nav-list>
+      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+        <!-- This is the tree node template for leaf nodes -->
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+          <!-- use a disabled button to provide padding for tree leaf -->
+          <button mat-icon-button disabled></button>
+          <button mat-button matTreeNodeToggle [routerLink]="['/', node.url]">{{node.name}}</button>
+        </mat-tree-node>
+        <!-- This is the tree node template for expandable nodes -->
+        <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+          <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+          {{node.name}}
+        </mat-tree-node>
+      </mat-tree>
+      <mat-divider></mat-divider>
+      <h3 matSubheader>示範用頁面</h3>
+      <a [routerLink]="['/', 'dashboard', 'survey']" mat-list-item>問卷調查</a>
+      <a [routerLink]="['/', 'dashboard', 'blog']" mat-list-item>部落格</a>
+      <a [routerLink]="['/', 'dashboard', 'inbox']" mat-list-item>收件夾</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content style="height:100vh">
+    <mat-toolbar>
+      <span>目前位置：首頁</span>
+    </mat-toolbar>
+    <div>
+      <button mat-raised-button (click)="menuTrigger.toggleMenu()">開啟訊息設定</button>
+    </div>
+    <div>
+      <div style="text-align:center">
+      </div>
+    </div>
+    <div>
+      <button mat-raised-button [matMenuTriggerFor]="positionMenu">巢狀選單demo</button>
+      <mat-menu #positionMenu="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="subMenu1">訊息1</button>
+        <button mat-menu-item [matMenuTriggerFor]="subMenu2">訊息2</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>訊息3</button>
+      </mat-menu>
+
+      <mat-menu #subMenu1="matMenu">
+        <button mat-menu-item>
+          <mat-icon>person</mat-icon>
+          訊息 1-1
+        </button>
+        <button mat-menu-item>
+          <mat-icon>favorite</mat-icon>
+          訊息 1-2
+        </button>
+        <button mat-menu-item>
+          <mat-icon>thumb_up</mat-icon>
+          訊息 1-3
+        </button>
+      </mat-menu>
+
+      <mat-menu #subMenu2="matMenu">
+        <button mat-menu-item>
+          <mat-icon>delete</mat-icon>
+          訊息 2-1
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>settings</mat-icon>
+          訊息 2-2
+        </button>
+      </mat-menu>
+    </div>
+    <!-- <app-main></app-main> -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
