@@ -1,0 +1,33 @@
+<div class="gray-bg box">
+  <div class="content">
+    <div class="loginForm">
+      <h2 style="text-align: center;font-size: 32px;color: #989898;margin: 40px 0px 10px 0;">管理後台</h2>
+      <div class="loginFormStyle">
+        <form>
+          <div style="margin-bottom: 15px;">
+            <mat-form-field appearance="outline" style="width: 270px;font-size: 12px;">
+              <mat-label>請輸入員工編號</mat-label>
+              <input matInput [(ngModel)] ="user.authId" name="username" required>
+              <mat-error>員工編號為必填</mat-error>
+            </mat-form-field>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <mat-form-field appearance="outline" style="width: 270px;font-size: 12px;">
+              <mat-label>請輸入密碼</mat-label>
+              <input type="password" matInput [(ngModel)] ='user.authSecret' name="password" required>
+              <mat-error>密碼為必填</mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <button (click)="login()" [disabled]="allowLogin" mat-raised-button style="width: 270px;" >登入</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="loginText">
+      <div class="mask">
+        <img src="assets/img/logo.jpg" alt="管理後台">
+      </div>
+    </div>
+  </div>
+</div>

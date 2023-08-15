@@ -5,9 +5,9 @@ import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     component: DashboardComponent,
-    children: [{ path: '', component: MainComponent }]
+    data: { keep: false },
   }
 ];
 

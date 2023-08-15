@@ -1,0 +1,14 @@
+<form>
+  <mat-form-field>
+    <mat-label>{{labelName}}*</mat-label>
+    <input
+      type="text"
+      matInput
+      maxlength="{{maxLength}}"
+      placeholder="請填入{{labelName}}"
+      [formControl]="control"
+    />
+    <mat-hint *ngIf="showHint" align="start"><strong>請注意長度限制</strong></mat-hint>
+    <mat-hint *ngIf="showHint" align="end">{{ control.value.length }} / {{maxLength}}</mat-hint>
+  </mat-form-field>
+</form>

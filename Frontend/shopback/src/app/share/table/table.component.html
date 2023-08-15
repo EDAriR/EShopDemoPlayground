@@ -1,0 +1,119 @@
+<table mat-table [dataSource]="dataSource" [ngClass]="classNames">
+  <ng-container [matColumnDef]="header.key" *ngFor="let header of columndefs">
+    <th mat-header-cell *matHeaderCellDef>{{ header.label }}</th>
+    <ng-container *ngIf="header.key === 'no'">
+      <td mat-cell *matCellDef="let element; let i = index">
+        {{ i + pageIndex + 1 }}
+      </td>
+    </ng-container>
+    <ng-container *ngIf="header.link">
+      <td
+        mat-cell
+        *matCellDef="let element; let i = index"
+        (click)="checkIfShowCopy(element) || linkToEdit(i)"
+        class="columnHoverOther"
+      >
+        <a mat-menu-item class="tableHyperlink">{{ element[header.key] }}</a>
+      </td>
+    </ng-container>
+    <ng-container *ngIf="header.key === 'userStatus'">
+      <td mat-cell *matCellDef="let element">
+        {{ element.userStatus | userStatus }}
+      </td>
+    </ng-container>
+    <ng-container *ngIf="header.key === 'recomndClsfyId'">
+      <td mat-cell *matCellDef="let element">
+        {{ element.recomndClsfyId | recomndClsfyId }}
+      </td>
+    </ng-container>
+    <ng-container *ngIf="header.key === 'ratio'">
+      <td mat-cell *matCellDef="let element">&#xb1;{{ element.deviation }}%</td>
+    </ng-container>
+    <ng-container *ngIf="header.key === 'deviation'">
+      <td mat-cell *matCellDef="let element">&ge;{{ element.deviation }}%</td>
+    </ng-container>
+    <ng-container *ngIf="header.key === 'tolerateScale'">
+      <td mat-cell *matCellDef="let element">{{ element.tolerateScale }}%</td>
+    </ng-container>
+    <ng-container *ngIf="header.key === 'copyBtn'">
+      <td mat-cell *matCellDef="let element; let i = index">
+        <a mat-raised-button *ngIf="checkIfShowCopy(element)" (click)="clickCopy(i)">複製</a>
+      </td>
+    </ng-container>
+    <ng-container *ngIf="header.key === 'features'">
+      <td mat-cell *matCellDef="let element; let i = index">
+        <a
+          mat-raised-button
+          (click)="linkToEdit(i)"
+          style="margin-right: 30px"
+          class="saveBtn"
+          >放行</a
+        >
+        <a
+          mat-raised-button
+          (click)="linkToEdit(i)"
+          style="margin-right: 30px"
+          class="cancelBtn"
+          >退件</a
+        >
+      </td>
+    </ng-container>
+    <ng-container *ngIf="header.key === 'reason'">
+      <td mat-cell *matCellDef="let element; let i = index">
+        <mat-form-field>
+          <input type="text" matInput />
+        </mat-form-field>
+      </td>
+    </ng-container>
+    <ng-container *ngIf="header.key === 'reviewFeature'">
+      <td mat-cell *matCellDef="let element; let i = index">
+        <a mat-raised-button (click)="linkToEdit(i)">審核</a>
+      </td>
+    </ng-container>
+    <ng-container *ngIf="header.key.endsWith('Time')">
+      <td mat-cell *matCellDef="let element">
+        {{ element[header.key] | time }}
+      </td>
+    </ng-container>
+    <ng-container *ngIf="header.key.endsWith('Status')">
+      <td mat-cell *matCellDef="let element">
+        {{ element[header.key] | approvalStatus }}
+      </td>
+    </ng-container>
+    <ng-container *ngIf="header.key.endsWith('QustType')">
+      <td mat-cell *matCellDef="let element">
+        {{ element[header.key] | qaTypeStatus }}
+      </td>
+    </ng-container>
+    <ng-container *ngIf="header.key.endsWith('Date')">
+      <td mat-cell *matCellDef="let element">
+        {{ element[header.key] | time:'date' }}
+      </td>
+    </ng-container>
+    <ng-container *ngIf="header.key === 'recomndClsfyId'">
+      <td mat-cell *matCellDef="let element">{{ element[header.key] | recomndClsfyId }}</td>
+    </ng-container>
+    <td mat-cell *matCellDef="let element">{{ element[header.key] }}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="columnsProps"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsProps"></tr>
+  <tr class="mat-row" *matNoDataRow>
+    <td
+      class="mat-cell"
+      [attr.colspan]="columndefs.length"
+      style="text-align: center"
+    >
+      {{ tableInfo }}
+    </td>
+  </tr>
+</table>
+<ng-container *ngIf="paginatorConfig.showPaginator">
+  <mat-paginator
+    #paginator
+    [length]="paginatorConfig.totalCount"
+    [pageIndex]="0"
+    [pageSize]="10"
+    (page)="pageEvent = getPageIndex($event)"
+  >
+  </mat-paginator>
+</ng-container>

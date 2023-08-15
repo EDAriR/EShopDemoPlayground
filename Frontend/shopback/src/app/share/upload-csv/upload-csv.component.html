@@ -1,0 +1,17 @@
+<div class="large-box">
+  <div style="text-align:center; margin-top: 100px;">
+    <button mat-raised-button class="tag" (click)="selectFile()">
+      <mat-icon>file_upload</mat-icon>
+      選擇檔案
+    </button>
+    <form enctype="multipart/form-data" method="post">
+      <input type="file" #fileUpload id="fileUpload" name="fileUpload" style="display:none;" accept=".csv" />
+      <div *ngIf="message">
+        <div>檔案名稱： {{message}}</div>
+        <button mat-raised-button class="tag" (click)="uploadCsv()">
+          確認上傳
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

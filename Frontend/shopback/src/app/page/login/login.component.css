@@ -1,0 +1,65 @@
+.box {
+  display: flex;
+  min-height: 100vh;
+  background-color: #5a6b83;
+}
+
+.content {
+  justify-content: center;
+  position: relative;
+  margin: auto;
+  display: flex;
+  align-self: center;
+  box-shadow: 0 20px 23px -12px #989898;
+  -webkit-box-shadow: 0 20px 23px -12px #989898;
+  -moz-box-shadow: 0 20px 23px -12px #989898;
+  -o-box-shadow: 0 20px 23px -12px #989898;
+  background-color: transparent;
+}
+
+.loginForm {
+  box-sizing: border-box;
+  background-color: #efefef;
+  padding: 15px 15px 20px;
+  width: 370px;
+  height: 550px;
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  border-radius: 10px 0 0 10px;
+}
+
+.loginFormStyle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginFormStyle form {
+  width: 270px;
+}
+
+.loginText {
+  box-sizing: border-box;
+  height: 550px;
+  width: 550px;
+  padding: 0 30px 100px 20px;
+  word-wrap: break-word;
+  background-color: #2d2a32;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  border-radius: 0 10px 10px 0;
+  align-items: flex-start;
+}
+
+.loginText div {
+  color: #000;
+}
+
+img {
+  width: 500px;
+}
