@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainComponent } from './main.component';
+import { N010100Component } from './n010100.component';
 
-describe('MainComponent', () => {
-  let component: MainComponent;
-  let fixture: ComponentFixture<MainComponent>;
+describe('N010100Component', () => {
+  let component: N010100Component;
+  let fixture: ComponentFixture<N010100Component>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MainComponent]
+      declarations: [N010100Component]
     });
-    fixture = TestBed.createComponent(MainComponent);
+    fixture = TestBed.createComponent(N010100Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

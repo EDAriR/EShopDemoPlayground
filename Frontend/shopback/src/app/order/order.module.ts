@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ShareShareMaterialModule } from '../share-material/share-material.module';
+import { ShareMaterialModule } from '../share-material/share-material.module';
 import { OrderTrackComponent } from './order-track/order-track.component';
 
 
@@ -11,7 +11,7 @@ import { OrderTrackComponent } from './order-track/order-track.component';
   ],
   imports: [
     CommonModule,
-    ShareShareMaterialModule,
+    ShareMaterialModule,
   ],
 })
 export class OrderModule { }

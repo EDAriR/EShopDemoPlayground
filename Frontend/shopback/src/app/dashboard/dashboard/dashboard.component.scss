@@ -2,5 +2,12 @@
   flex: 1 1 auto;
 }
 mat-sidenav-content {
-  height: calc(100vh - 64px);
+  height: calc(100vh - 104px);
+}
+
+.mat-expansion-panel-spacing{
+  margin: 0;
+}
+.contain {
+  padding: 2rem 3rem 3rem;
 }

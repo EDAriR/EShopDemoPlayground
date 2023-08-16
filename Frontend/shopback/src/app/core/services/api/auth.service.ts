@@ -18,7 +18,6 @@ export class AuthService {
   constructor(
     public http: HttpClient,
     private router: Router,
-    public authSvc: AuthService,
     private HttpClients: HttpClientService
     ) { }
 

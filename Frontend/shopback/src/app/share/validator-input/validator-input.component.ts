@@ -7,8 +7,10 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./validator-input.component.css']
 })
 export class ValidatorInputComponent implements OnInit {
-  @Input() control: FormControl;
-  @Input() labelName: string;
+  @Input()
+  control!: FormControl;
+  @Input()
+  labelName!: string;
   @Input() showHint?: boolean = true;
   @Input() maxLength?: string|boolean ='20'
 

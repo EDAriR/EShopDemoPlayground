@@ -13,10 +13,11 @@ import {
   styleUrls: ['./upload-csv.component.css'],
 })
 export class UploadCsvComponent implements OnInit {
-  @ViewChild('fileUpload', { static: false }) fileUpload: ElementRef;
+  @ViewChild('fileUpload', { static: false })
+  fileUpload!: ElementRef;
 
-  file: File;
-  message: string;
+  file!: File;
+  message!: string;
 
   // 待確認傳入資料
   @Output() fileGroup = new EventEmitter<string>();
@@ -50,7 +51,7 @@ export class UploadCsvComponent implements OnInit {
   }
 
   // 傳送整理好的資料給父組件，用於呼叫api
-  setFile(i) {
+  setFile(i: any) {
     this.fileGroup.emit(i);
   }
 }

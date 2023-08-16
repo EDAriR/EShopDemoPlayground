@@ -15,86 +15,108 @@
     <button mat-menu-item>最新訊息</button>
     <button mat-menu-item>訊息設定</button>
   </mat-menu>
-  <button mat-icon-button>
+  <button mat-icon-button (click)="logout()">
     <mat-icon>exit_to_app</mat-icon>
   </button>
 </mat-toolbar>
 
 <mat-sidenav-container class="demo-app-container">
+
   <mat-sidenav style="min-width: 200px;" class="demo-app-sidenav" #sideNav mode="push" (opened)="opened()"
     (closed)="closed()">
     <mat-nav-list>
-      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-        <!-- This is the tree node template for leaf nodes -->
-        <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-          <!-- use a disabled button to provide padding for tree leaf -->
-          <button mat-icon-button disabled></button>
-          <button mat-button matTreeNodeToggle [routerLink]="['/', node.url]">{{node.name}}</button>
-        </mat-tree-node>
-        <!-- This is the tree node template for expandable nodes -->
-        <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
-          <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
-            <mat-icon class="mat-icon-rtl-mirror">
-              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-            </mat-icon>
-          </button>
-          {{node.name}}
-        </mat-tree-node>
-      </mat-tree>
-      <mat-divider></mat-divider>
-      <h3 matSubheader>示範用頁面</h3>
-      <a [routerLink]="['/', 'dashboard', 'survey']" mat-list-item>問卷調查</a>
-      <a [routerLink]="['/', 'dashboard', 'blog']" mat-list-item>部落格</a>
-      <a [routerLink]="['/', 'dashboard', 'inbox']" mat-list-item>收件夾</a>
+      <mat-accordion multi="false">
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              總覽
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a routerLink="/dashboard" mat-list-item>總覽</a>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              訂單管理
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a routerLink="/dashboard/n010100" mat-list-item>訂單查詢</a>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              商品及分類
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a routerLink="/dashboard/n02" mat-list-item>商品及分類</a>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              庫存管理
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a routerLink="/dashboard/n03" mat-list-item>庫存管理</a>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              顧客管理
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a routerLink="/dashboard/n04" mat-list-item>顧客管理</a>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              促銷設定
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a routerLink="/dashboard/n05" mat-list-item>促銷設定</a>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              報表管理
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a routerLink="/dashboard/n06" mat-list-item>報表管理</a>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              報表管理
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a routerLink="/dashboard/n07" mat-list-item>報表管理</a>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              網站設計
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a routerLink="/dashboard/n07" mat-list-item>網站設計</a>
+        </mat-expansion-panel>
+      </mat-accordion>
     </mat-nav-list>
   </mat-sidenav>
-
   <mat-sidenav-content>
     <mat-toolbar>
       <span>目前位置：首頁</span>
     </mat-toolbar>
-    <div>
-      <button mat-raised-button (click)="menuTrigger.toggleMenu()">開啟訊息設定</button>
-    </div>
-    <div>
-      <div style="text-align:center">
-      </div>
-    </div>
-    <div>
-      <button mat-raised-button [matMenuTriggerFor]="positionMenu">巢狀選單demo</button>
-      <mat-menu #positionMenu="matMenu">
-        <button mat-menu-item [matMenuTriggerFor]="subMenu1">訊息1</button>
-        <button mat-menu-item [matMenuTriggerFor]="subMenu2">訊息2</button>
-        <mat-divider></mat-divider>
-        <button mat-menu-item>訊息3</button>
-      </mat-menu>
 
-      <mat-menu #subMenu1="matMenu">
-        <button mat-menu-item>
-          <mat-icon>person</mat-icon>
-          訊息 1-1
-        </button>
-        <button mat-menu-item>
-          <mat-icon>favorite</mat-icon>
-          訊息 1-2
-        </button>
-        <button mat-menu-item>
-          <mat-icon>thumb_up</mat-icon>
-          訊息 1-3
-        </button>
-      </mat-menu>
-
-      <mat-menu #subMenu2="matMenu">
-        <button mat-menu-item>
-          <mat-icon>delete</mat-icon>
-          訊息 2-1
-        </button>
-        <button mat-menu-item disabled>
-          <mat-icon>settings</mat-icon>
-          訊息 2-2
-        </button>
-      </mat-menu>
+    <div class="contain">
+      <router-outlet></router-outlet>
     </div>
-    <!-- <app-main></app-main> -->
   </mat-sidenav-content>
 </mat-sidenav-container>
+<app-footer></app-footer>
