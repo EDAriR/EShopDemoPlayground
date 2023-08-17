@@ -22,8 +22,7 @@
 
 <mat-sidenav-container class="demo-app-container">
 
-  <mat-sidenav style="min-width: 200px;" class="demo-app-sidenav" #sideNav mode="push" (opened)="opened()"
-    (closed)="closed()">
+  <mat-sidenav style="min-width: 200px;" class="demo-app-sidenav" #sideNav mode="push">
     <mat-nav-list>
       <mat-accordion multi="false">
         <mat-expansion-panel hideToggle>
@@ -32,7 +31,7 @@
               總覽
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <a routerLink="/dashboard" mat-list-item>總覽</a>
+          <a routerLink="/dashboard/n00" mat-list-item>總覽</a>
         </mat-expansion-panel>
 
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
@@ -114,8 +113,10 @@
       <span>目前位置：首頁</span>
     </mat-toolbar>
 
-    <div class="contain">
-      <router-outlet></router-outlet>
+    <div>
+      <div class="contain">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -9,6 +9,11 @@ const routes: Routes = [
     data: { keep: false },
     children: [
       {
+        path: 'n00',
+        loadChildren: () =>
+          import('../page/n00/n00.module').then((m) => m.N00Module),
+      },
+      {
         path: 'n010100',
         loadChildren: () =>
           import('../page/n01/n010100/n010100.module').then((m) => m.N010100Module),

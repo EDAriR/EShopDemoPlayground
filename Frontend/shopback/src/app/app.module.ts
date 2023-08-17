@@ -9,8 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginComponent } from './page/login/login.component';
-import { N010100Component } from './page/n01/n010100/n010100.component';
-import { N010200Component } from './page/n01/n010200/n010200.component';
+import { NgChartsModule } from 'ng2-charts';
+
 import { ErrorDialogComponent } from './share/dialog/error-dialog/error-dialog.component';
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { ErrorDialogComponent } from './share/dialog/error-dialog/error-dialog.c
   ],
   imports: [
     BrowserModule,
+    NgChartsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,

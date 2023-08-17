@@ -3,9 +3,10 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PathService } from 'src/app/core/services/api/path';
 import { saveApiId } from 'src/app/core/utils/storage';
+import { DashboardDataService } from 'src/app/dashboard/dashboard-data-service.service';
 
 @Component({
   selector: 'app-n010100',
@@ -18,9 +19,12 @@ export class N010100Component implements AfterViewInit {
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
-    private router: Router
-  ) { }
+    private router: Router,
+    private dashboardDataService: DashboardDataService  ) { }
 
+  ngOnInit(): void {
+    this.dashboardDataService.setShowDashboardData(false);
+  }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

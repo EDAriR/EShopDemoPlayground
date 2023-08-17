@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDrawerToggleResult, MatSidenav } from '@angular/material/sidenav';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs';
 import { AuthService } from 'src/app/core/services/api/auth.service';
+import { DashboardDataService } from '../dashboard-data-service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,11 +11,11 @@ import { AuthService } from 'src/app/core/services/api/auth.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  constructor(
-    private authSvc: AuthService,
-  ) { }
+  panelOpenState = false;
 
-  ngOnInit() { }
+  constructor(private authSvc: AuthService) { }
+
+  ngOnInit(): void { }
 
   toggleSideNav(sideNav: MatSidenav) {
     sideNav.toggle().then((result: MatDrawerToggleResult) => {
@@ -20,18 +23,9 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  opened() {
-    console.log('芝麻開門');
-  }
-
-  closed() {
-    console.log('芝麻關門');
-  }
-
   logout(): void {
     this.authSvc.apiLogout('login');
   }
 
-  panelOpenState = false;
 
 }

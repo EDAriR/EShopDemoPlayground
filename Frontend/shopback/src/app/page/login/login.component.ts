@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     }
     const self = this
     self.userIdSvc.userId = sha256User.authId
-    self.router.navigate(['dashboard'])
+    self.router.navigate(['dashboard/n00'])
     self.allowLogin = true;
 
     // this.authSvc.apiLogin('auth/accessToken', sha256User).subscribe({
