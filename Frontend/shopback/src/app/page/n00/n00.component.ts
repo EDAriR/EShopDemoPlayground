@@ -19,7 +19,6 @@ export class N00Component {
     const now = new Date();
     this.currentDateTime = this.datePipe.transform(now, 'yyyy/MM/dd HH:mm:ss')!;
   }
-  title = 'ng2-charts-demo';
 
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: [
@@ -57,6 +56,44 @@ export class N00Component {
       }
     ]
   };
+
+  public CancelOrderData: ChartConfiguration<'line'>['data'] = {
+    labels: [
+      '8/1',
+      '8/2',
+      '8/3',
+      '8/4',
+      '8/5',
+      '8/6',
+      '8/7'
+    ],
+    datasets: [
+      {
+        data: [ 5, 9, 0, 1, 6, 5, 0 ],
+        label: '全通路',
+        fill: 'black',
+        tension: 0,
+        borderColor: 'black',
+        backgroundColor: '#fff'
+      },
+      {
+        data: [ 2, 4, 0, 0, 0, 2, 0 ],
+        label: '網路商店',
+        tension: 0,
+        borderColor: 'red',
+        backgroundColor: '#fff'
+      },
+      {
+        data: [ 3, 5, 0, 1, 6, 3, 0 ],
+        label: '實體商店',
+        fill: 'blue',
+        tension: 0,
+        backgroundColor: '#fff',
+        borderColor: '#green',
+      }
+    ]
+  };
+
   public lineChartOptions: ChartOptions<'line'> = {
     responsive: false
   };

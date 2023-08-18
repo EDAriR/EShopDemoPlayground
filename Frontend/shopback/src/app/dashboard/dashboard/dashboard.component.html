@@ -49,7 +49,10 @@
               商品及分類
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <a routerLink="/dashboard/n02" mat-list-item>商品及分類</a>
+          <a routerLink="/dashboard/n020100" mat-list-item>商品列表</a>
+          <a routerLink="/dashboard/n020200" mat-list-item>添加商品</a>
+          <a routerLink="/dashboard/n020300" mat-list-item>商品分類</a>
+          <a routerLink="/dashboard/n020400" mat-list-item>商品類型</a>
         </mat-expansion-panel>
 
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
@@ -109,15 +112,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar>
-      <span>目前位置：首頁</span>
-    </mat-toolbar>
-
-    <div>
-      <div class="contain">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 <app-footer></app-footer>

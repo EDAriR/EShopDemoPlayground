@@ -8,6 +8,8 @@ import { PipeModule } from 'src/app/core/pipe/pipe.module';
 import { ShareMaterialModule } from '../share-material/share-material.module';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { AlertDialogComponent } from './dialog/alert-dialog/alert-dialog.component';
+import { ReturnDialogComponent } from './dialog/return-dialog/return-dialog.component';
+import { ReviewDialogComponent } from './dialog/review-dialog/review-dialog.component';
 import { FormTextComponent } from './form-text/form-text.component';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 import { UploadCsvComponent } from './upload-csv/upload-csv.component';
@@ -21,6 +23,8 @@ import { ValidatorInputComponent } from './validator-input/validator-input.compo
     FormTextComponent,
     ValidatorInputComponent,
     UploadCsvComponent,
+    ReviewDialogComponent,
+    ReturnDialogComponent
   ],
   imports: [
     CommonModule,

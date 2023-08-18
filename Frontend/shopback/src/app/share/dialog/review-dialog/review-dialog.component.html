@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>確認是否{{title}}</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>確認{{title}}</h3>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close class="cancelBtn">取消</button>
+  <button mat-raised-button mat-dialog-close cdkFocusInitial (click)="openDialog()">{{title}}</button>
+</mat-dialog-actions>

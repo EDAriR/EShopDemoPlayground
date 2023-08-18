@@ -1,70 +1,16 @@
+<mat-toolbar>
+  <span>目前位置：首頁</span>
+</mat-toolbar>
 <div class="contain">
   <mat-tab-group>
     <mat-tab label="全通路">
-      <div class="grobal">
-        <button mat-raised-button color="primary" (click)="changeData()">即時更新</button>
-        <div class="text">資料最後更新時間 {{ currentDateTime }}</div>
-      </div>
-      <div class="grobal">
-        <mat-card>
-          <mat-card-header>平均每日訂單量</mat-card-header>
-          <mat-card-content>
-            <div class="num">18</div>
-            <div class="underline">
-              <div>
-                <div>網路商店</div>
-                <div>6</div>
-              </div>
-              <div>
-                <div>實體商店</div>
-                <div>12</div>
-              </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card>
-          <mat-card-header>平均訂單金額</mat-card-header>
-          <mat-card-content>
-            <div class="num">$213,290</div>
-            <div class="underline">
-              <div>
-                <div>網路商店</div>
-                <div>$201,236</div>
-              </div>
-              <div>
-                <div>實體商店</div>
-                <div>$12,054</div>
-              </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
-        <mat-card>
-          <mat-card-header>成交訂單數量</mat-card-header>
-          <mat-card-content>
-            <div class="num">1,288</div>
-            <div class="underline chat-width">
-              <div>
-                <div>網路商店</div>
-                <div>1,236</div>
-              </div>
-              <div>
-                <div>實體商店</div>
-                <div>52</div>
-              </div>
-            </div>
-            <div style="display: block;">
-              <canvas baseChart width="550" height="350" [type]="'line'" [data]="lineChartData"
-                [options]="lineChartOptions" [legend]="lineChartLegend">
-              </canvas>
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
-
-
+      <app-n000100></app-n000100>
     </mat-tab>
-    <mat-tab label="網路商店"> Content 2 </mat-tab>
-    <mat-tab label="實體店"> Content 3 </mat-tab>
+    <mat-tab label="網路商店">
+      <app-n000200></app-n000200>
+    </mat-tab>
+    <mat-tab label="實體店">
+      <app-n000300></app-n000300>
+    </mat-tab>
   </mat-tab-group>
 </div>

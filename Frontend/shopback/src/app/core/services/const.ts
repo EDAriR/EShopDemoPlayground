@@ -55,11 +55,8 @@ export class Const {
   public static refuse = '退件';
   public static reviewed = '已審閱';
 
-  public static productClsfy = [
-    { val: '1', desc: '股票' },
-    { val: '3', desc: 'ETF' },
-    { val: '4', desc: '基金' },
-  ];
+  public static sendNotification ='發送通知';
+
 
   constructor() {}
 }

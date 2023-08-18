@@ -23,6 +23,26 @@ const routes: Routes = [
         loadChildren: () =>
           import('../page/n01/n010200/n010200.module').then((m) => m.N010200Module),
       },
+      {
+        path: 'n020100',
+        loadChildren: () =>
+          import('../page/n02/n020100/n020100.module').then((m) => m.N020100Module),
+      },
+      {
+        path: 'n020200',
+        loadChildren: () =>
+          import('../page/n02/n020200/n020200.module').then((m) => m.N020200Module),
+      },
+      {
+        path: 'n020300',
+        loadChildren: () =>
+          import('../page/n02/n020300/n020300.module').then((m) => m.N020300Module),
+      },
+      {
+        path: 'n020400',
+        loadChildren: () =>
+          import('../page/n02/n020400/n020400.module').then((m) => m.N020400Module),
+      }
     ]
   }
 ];

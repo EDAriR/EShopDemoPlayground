@@ -1,0 +1,65 @@
+<div class="grobal">
+  <button mat-raised-button color="primary" (click)="changeData()">即時更新</button>
+  <div class="text">資料最後更新時間 {{ currentDateTime }}</div>
+</div>
+<div class="grobal">
+  <mat-card>
+    <mat-card-header>平均每日訂單量</mat-card-header>
+    <mat-card-content>
+      <div class="num">12</div>
+      <div class="underline">
+        <div>
+          <div>實體商店</div>
+          <div>12</div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>平均訂單金額</mat-card-header>
+    <mat-card-content>
+      <div class="num">$12,054</div>
+      <div class="underline">
+        <div>
+          <div>實體商店</div>
+          <div>$12,054</div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-header>成交訂單數量</mat-card-header>
+    <mat-card-content>
+      <div class="num">52</div>
+      <div class="underline chat-width">
+        <div>
+          <div>實體商店</div>
+          <div>52</div>
+        </div>
+      </div>
+      <div style="display: block;">
+        <canvas baseChart width="550" height="350" [type]="'line'" [data]="CancelOrderData" [options]="lineChartOptions"
+          [legend]="lineChartLegend">
+        </canvas>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-header>取消訂單數量</mat-card-header>
+    <mat-card-content>
+      <div class="num">22</div>
+      <div class="underline chat-width">
+        <div>
+          <div>實體商店</div>
+          <div>22</div>
+        </div>
+      </div>
+      <div style="display: block;">
+        <canvas baseChart width="550" height="350" [type]="'line'" [data]="CancelOrderData" [options]="lineChartOptions"
+          [legend]="lineChartLegend">
+        </canvas>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

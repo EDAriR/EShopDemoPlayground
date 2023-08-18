@@ -1,25 +1,21 @@
-import { NgModule } from '@angular/core';
+import { ShareMaterialModule } from 'src/app/share-material/share-material.module';
 import { CommonModule } from '@angular/common';
-import { N010100RoutingModule } from './n010100-routing.module';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PipeModule } from 'src/app/core/pipe/pipe.module';
 import { ShareModule } from 'src/app/share/share.module';
+import { N010100RoutingModule } from './n010100-routing.module';
 import { N010100Component } from './n010100.component';
-import { ShareMaterialModule } from 'src/app/share-material/share-material.module';
-import { N01Module } from '../n01.module';
-
-
-
+import { N010101Component } from './n010101/n010101.component';
 @NgModule({
-  declarations: [N010100Component,],
+  declarations: [N010100Component, N010101Component],
   imports: [
     CommonModule,
     N010100RoutingModule,
-    ShareMaterialModule,
     FormsModule,
     PipeModule,
     ShareModule,
-    N01Module
-  ]
+    ShareMaterialModule
+  ],
 })
-export class N010100Module { }
+export class N010100Module {}

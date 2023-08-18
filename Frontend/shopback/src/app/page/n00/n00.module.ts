@@ -5,11 +5,14 @@ import { ShareMaterialModule } from 'src/app/share-material/share-material.modul
 import { N00Component } from './n00.component';
 import { N00RoutingModule } from './n00-routing.module';
 import { NgChartsConfiguration, NgChartsModule } from 'ng2-charts';
+import { N000100Component } from './n000100/n000100.component';
+import { N000200Component } from './n000200/n000200.component';
+import { N000300Component } from './n000300/n000300.component';
 
 
 
 @NgModule({
-  declarations: [N00Component],
+  declarations: [N00Component, N000100Component, N000200Component, N000300Component],
   imports: [
     CommonModule,
     ShareMaterialModule,

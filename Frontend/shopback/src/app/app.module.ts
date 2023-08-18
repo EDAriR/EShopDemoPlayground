@@ -12,6 +12,7 @@ import { LoginComponent } from './page/login/login.component';
 import { NgChartsModule } from 'ng2-charts';
 
 import { ErrorDialogComponent } from './share/dialog/error-dialog/error-dialog.component';
+
 @NgModule({
   declarations: [
     AppComponent,
