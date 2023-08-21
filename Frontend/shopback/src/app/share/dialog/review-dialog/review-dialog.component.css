@@ -1,3 +1,6 @@
 mat-dialog-content {
   width: 450px;
 }
+mat-form-field{
+  width: 400px;
+}
