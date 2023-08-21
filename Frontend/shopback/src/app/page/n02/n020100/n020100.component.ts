@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { PathService } from 'src/app/core/services/api/path';
 import { DashboardDataService } from 'src/app/dashboard/dashboard-data-service.service';
 import { Categories } from './categories';
 import { CommodityStatus } from './commodityStatus';
@@ -25,6 +27,7 @@ export class N020100Component {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
+    private router: Router,
     private dashboardDataService: DashboardDataService) { }
 
   ngOnInit(): void {
@@ -35,8 +38,11 @@ export class N020100Component {
     this.dataSource.paginator = this.paginator;
 
   }
-  clickPage(): void {
+
+  clickPage(){
+
   }
+
   displayedColumns: string[] = ['position', 'pic', 'name', 'tag', 'price', 'num', 'sales', 'status'];
   dataSource = new MatTableDataSource<ProductElement>(ELEMENT_DATA);
 
