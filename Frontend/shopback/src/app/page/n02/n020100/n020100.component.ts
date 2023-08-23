@@ -22,6 +22,8 @@ export class N020100Component {
   form = new FormGroup({
     docCode: new FormControl(''),
     docName: new FormControl(''),
+    status: new FormControl(''),
+    categories: new FormControl(''),
   });
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

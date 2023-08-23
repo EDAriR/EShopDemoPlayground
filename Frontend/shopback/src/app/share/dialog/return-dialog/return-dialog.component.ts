@@ -28,7 +28,7 @@ export class ReturnDialogComponent implements OnInit {
   ngOnInit(): void {}
 
   goBack(): void {
-    // this.location.back();
+    this.location.back();
     // this.router.navigate([this.routerUrl], { relativeTo: this.route , state : {tableData: this.tableData } });
   }
 }

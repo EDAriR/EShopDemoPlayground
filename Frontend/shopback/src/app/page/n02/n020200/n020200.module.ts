@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { N020200Component } from './n020200.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PipeModule } from 'src/app/core/pipe/pipe.module';
 import { ShareMaterialModule } from 'src/app/share-material/share-material.module';
 import { ShareModule } from 'src/app/share/share.module';
@@ -19,7 +19,8 @@ import { N020200RoutingModule } from './n020200-routing.module';
     FormsModule,
     PipeModule,
     ShareModule,
-    ShareMaterialModule
-  ]
+    ShareMaterialModule,
+    ReactiveFormsModule
+  ],
 })
 export class N020200Module { }

@@ -6,14 +6,12 @@ import { PipeModule } from 'src/app/core/pipe/pipe.module';
 import { ShareMaterialModule } from 'src/app/share-material/share-material.module';
 import { ShareModule } from 'src/app/share/share.module';
 import { N020100RoutingModule } from './n020100-routing.module';
-import { N020101Component } from './n020101/n020101.component';
 
 
 
 @NgModule({
   declarations: [
     N020100Component,
-    N020101Component
   ],
   imports: [
     CommonModule,

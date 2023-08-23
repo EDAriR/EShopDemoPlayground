@@ -37,6 +37,17 @@
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
           <mat-expansion-panel-header>
             <mat-panel-title>
+              For ED
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a routerLink="/dashboard/n020300" mat-list-item>消息分類</a>
+          <a routerLink="/dashboard/n020400" mat-list-item>機器人設定</a>
+          <a routerLink="/dashboard/n030100" mat-list-item>消息發送</a>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
               訂單管理
             </mat-panel-title>
           </mat-expansion-panel-header>

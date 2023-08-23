@@ -12,6 +12,7 @@ import { ReturnDialogComponent } from './dialog/return-dialog/return-dialog.comp
 import { ReviewDialogComponent } from './dialog/review-dialog/review-dialog.component';
 import { FormTextComponent } from './form-text/form-text.component';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
+import { TableComponent } from './table/table.component';
 import { UploadCsvComponent } from './upload-csv/upload-csv.component';
 import { ValidatorInputComponent } from './validator-input/validator-input.component';
 
@@ -24,7 +25,8 @@ import { ValidatorInputComponent } from './validator-input/validator-input.compo
     ValidatorInputComponent,
     UploadCsvComponent,
     ReviewDialogComponent,
-    ReturnDialogComponent
+    ReturnDialogComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,

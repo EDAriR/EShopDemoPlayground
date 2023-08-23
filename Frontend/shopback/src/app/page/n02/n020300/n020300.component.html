@@ -1,6 +1,106 @@
 <mat-toolbar>
-  <span>目前位置：商品及分類 / 商品分類</span>
+  <span>目前位置：消息分類</span>
 </mat-toolbar>
 <div class="contain">
+  <div class="contents mat-elevation-z8">
+    <mat-expansion-panel expanded="{{ panelOpenState }}" (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        {{ panelOpenState ? "收合" : "展開" }}查詢列
+      </mat-expansion-panel-header>
+      <form class="searchStyle" [formGroup]="form">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>關鍵字查詢</mat-label>
+            <input matInput placeholder="請輸入關鍵字查詢碼" maxlength="10" formControlName="docCode" />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>商品編號</mat-label>
+            <input matInput placeholder="請輸入商品編號" name="fileName" maxlength="20" formControlName="docName" />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>商品分類</mat-label>
+            <mat-select formControlName="categories">
+              <mat-option *ngFor="let category of categories" [value]="category.value">
+                {{category.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>上架狀態</mat-label>
+            <mat-select formControlName="status">
+              <mat-option *ngFor="let state of status" [value]="state.value">
+                {{state.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
+
+      <div class="btnStyle">
+        <button mat-raised-button color="primary" (click)="clickPage()">查詢</button>
+      </div>
+    </mat-expansion-panel>
+  </div>
+
+  <div class="title">
+    <h2>消息類別</h2>
+    <button mat-raised-button color="primary" routerLink="/dashboard/n020300/n020302">新增消息</button>
+  </div>
+  <div class="title">
+    <button mat-raised-button color="warn" (click)="openDialog()">刪除消息</button>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element" (click)="linkToEdit(i)"> {{element.position}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef> Weight </th>
+      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> Symbol </th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+    </tr>
+  </table>
+
+
 
 </div>

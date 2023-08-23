@@ -9,6 +9,11 @@ export class PathService {
 
   /*商品管理 / 新增商品*/
   static NewProduct = 'dashboard/n020100/n020101';
+  static portfolioRiskLevelNew: any;
+  static portfolioRiskLevelMaintenance: any;
+
+  //for ed
+  static add = 'dashboard/n020300/n020301';
 
   constructor() { }
 }

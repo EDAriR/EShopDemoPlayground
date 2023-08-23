@@ -24,8 +24,8 @@
         <div>
           <mat-form-field appearance="outline">
             <mat-label>商品分類</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let category of categories" [value]="categories.value">
+            <mat-select formControlName="categories">
+              <mat-option *ngFor="let category of categories" [value]="category.value">
                 {{category.viewValue}}
               </mat-option>
             </mat-select>
@@ -34,8 +34,8 @@
         <div>
           <mat-form-field appearance="outline">
             <mat-label>上架狀態</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let state of status" [value]="status.value">
+            <mat-select formControlName="status">
+              <mat-option *ngFor="let state of status" [value]="state.value">
                 {{state.viewValue}}
               </mat-option>
             </mat-select>
@@ -51,7 +51,7 @@
 
   <div class="title">
     <h2>商品列表</h2>
-    <button mat-raised-button color="primary" routerLink="/dashboard/n020100/n020101">新增商品</button>
+    <button mat-raised-button color="primary" routerLink="/dashboard/n020200">新增商品</button>
   </div>
 
   <div class="mat-elevation-z8">

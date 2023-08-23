@@ -1,0 +1,55 @@
+mat-panel-title {
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-weight: 700;
+}
+
+mat-form-field {
+  width: 360px;
+  font-size: 14px;
+}
+
+.searchStyle {
+  padding-top: 15px;
+  margin: 0 20px;
+}
+
+.searchStyle>div {
+  margin-right: 20px;
+}
+
+.contents {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btnStyle {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 22px;
+  padding-top: 15px;
+
+  button {
+    border-radius: 20px;
+    width: 140px;
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0 15px 0;
+  align-items: center;
+}
+img {
+  max-width: 150px;
+  max-height: 150px;
+}
