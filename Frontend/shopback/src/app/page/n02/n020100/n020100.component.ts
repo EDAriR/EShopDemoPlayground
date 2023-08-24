@@ -1,9 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { PathService } from 'src/app/core/services/api/path';
 import { DashboardDataService } from 'src/app/dashboard/dashboard-data-service.service';
 import { Categories } from './categories';
 import { CommodityStatus } from './commodityStatus';

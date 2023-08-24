@@ -12,6 +12,7 @@ import { LoginComponent } from './page/login/login.component';
 import { NgChartsModule } from 'ng2-charts';
 
 import { ErrorDialogComponent } from './share/dialog/error-dialog/error-dialog.component';
+import { MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import { ErrorDialogComponent } from './share/dialog/error-dialog/error-dialog.c
     FormsModule,
     DashboardModule
   ],
-  providers: [],
+  providers: [{
+    provide: MAT_RADIO_DEFAULT_OPTIONS,
+    useValue: { color: 'primary' },
+  }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

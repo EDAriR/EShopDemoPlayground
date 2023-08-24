@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <span>目前位置：消息發送</span>
+</mat-toolbar>
+<div class="contain">
+  <div class="title">
+    <h2>消息發送</h2>
+    <div>
+      <button mat-raised-button color="primary" (click)="openDialog()" style="margin-right: 10px;">發送</button>
+    </div>
+  </div>
+
+  <form class="searchStyle" [formGroup]="form">
+    <div class="title">消息類型</div>
+    <mat-form-field appearance="outline">
+      <mat-label>消息類型</mat-label>
+      <mat-select formControlName="status">
+        <mat-option *ngFor="let state of status" [value]="state.value">
+          {{state.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="flex">
+      <div class="title">消息內容</div>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>消息內容</mat-label>
+      <textarea matInput placeholder="請輸入消息內容" formControlName="describe"></textarea>
+    </mat-form-field>
+
+  </form>
+</div>
