@@ -42,7 +42,7 @@ const NAMES: string[] = [
 })
 export class N020303Component implements AfterViewInit {
   displayedColumns: string[] = ['id', 'name', 'tag', 'fruit'];
-  dataSource: MatTableDataSource<UserData>;
+  dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
