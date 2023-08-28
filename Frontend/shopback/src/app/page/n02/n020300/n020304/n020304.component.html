@@ -10,9 +10,9 @@
   </div>
 
   <form class="searchStyle" [formGroup]="form">
-    <div class="title">消息類型</div>
+    <div class="title">發送tag</div>
     <mat-form-field appearance="outline">
-      <mat-label>消息類型</mat-label>
+      <mat-label>發送tag</mat-label>
       <mat-select formControlName="status">
         <mat-option *ngFor="let state of status" [value]="state.value">
           {{state.viewValue}}

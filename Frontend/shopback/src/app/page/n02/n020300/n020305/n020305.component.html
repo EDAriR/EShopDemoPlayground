@@ -2,4 +2,18 @@
   <span>目前位置：機器人標籤設定</span>
 </mat-toolbar>
 <div class="contain">
+  <div class="title">
+    <h2>群組名稱：{{data.name}}</h2>
+    <div>
+      <button mat-raised-button color="primary" (click)="openDialog()" style="margin-right: 10px;">儲存</button>
+      <button mat-raised-button (click)="goBack()">回上一頁</button>
+    </div>
+  </div>
+  <div class="flex">
+    <mat-form-field appearance="outline">
+      <mat-label>tag</mat-label>
+      <textarea matInput placeholder="請輸入tag">{{tagString}}</textarea>
+      <mat-hint align="start"><strong>請使用 , 作標籤分隔</strong> </mat-hint>
+    </mat-form-field>
+  </div>
 </div>

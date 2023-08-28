@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 /** Constants used to fill up our data base. */
 const FRUITS: string[] = [
@@ -47,7 +48,7 @@ export class N020303Component implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() {
+  constructor(private router: Router) {
     // Create 100 users
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
@@ -68,6 +69,10 @@ export class N020303Component implements AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  navigateToEditPage(item: any) {
+    this.router.navigate(['dashboard/n020300/n020305'], { state: { data: item } });
+  }
 }
 
 /** Builds and returns a new User. */
@@ -84,4 +89,6 @@ function createNewUser(id: number): any {
     tag: ['test','eded'],
     fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
   };
+
+
 }
