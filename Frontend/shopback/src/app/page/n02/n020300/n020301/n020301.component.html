@@ -1,9 +1,9 @@
 <mat-toolbar>
-  <span>目前位置：修改消息</span>
+  <span>目前位置：新增消息</span>
 </mat-toolbar>
 <div class="contain">
   <div class="title">
-    <h2>修改消息</h2>
+    <h2>新增消息</h2>
     <div>
       <button mat-raised-button color="primary" (click)="openDialog()" style="margin-right: 10px;">儲存</button>
       <button mat-raised-button (click)="goBack()">回上一頁</button>
@@ -11,62 +11,22 @@
   </div>
 
   <form class="searchStyle" [formGroup]="form">
-    <div class="title">商品名稱</div>
+    <div class="title">群組名稱</div>
     <mat-form-field appearance="outline">
-      <mat-label>商品名稱</mat-label>
-      <input matInput placeholder="請輸入商品名稱" formControlName="name" />
+      <mat-label>群組名稱</mat-label>
+      <input matInput placeholder="請輸入群組名稱" formControlName="name" />
     </mat-form-field>
 
-    <div class="title">商品標語</div>
+    <div class="title">tag</div>
     <mat-form-field appearance="outline">
-      <mat-label>商品標語</mat-label>
-      <input matInput placeholder="請輸入商品標語" formControlName="title" />
+      <mat-label>tag</mat-label>
+      <input matInput placeholder="請輸入tag" formControlName="title" />
     </mat-form-field>
 
-    <div class="flex">
-      <div class="title">商品描述</div>
-      <mat-radio-group aria-label="Select an option">
-        <mat-radio-button value="1">HTML樣板</mat-radio-button>
-        <mat-radio-button value="2">純文字</mat-radio-button>
-      </mat-radio-group>
-    </div>
+    <div class="title">訊息</div>
     <mat-form-field appearance="outline">
-      <mat-label>商品描述</mat-label>
-      <textarea matInput placeholder="請輸入商品描述" formControlName="describe"></textarea>
+      <mat-label>訊息</mat-label>
+      <textarea matInput placeholder="請輸入訊息" formControlName="describe"></textarea>
     </mat-form-field>
-
-    <div class="title">上架狀態</div>
-    <mat-form-field appearance="outline">
-      <mat-label>上架狀態</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let state of status" [value]="state.value">
-          {{state.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <div class="flex">
-      <div style="margin-right:40px ;">
-        <div class="title">上架時間</div>
-        <mat-form-field appearance="fill">
-          <mat-label>Choose a date</mat-label>
-          <input matInput [matDatepicker]="startpicker">
-          <mat-hint>YYYY/MM/DD</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="startpicker"></mat-datepicker-toggle>
-          <mat-datepicker #startpicker></mat-datepicker>
-        </mat-form-field>
-      </div>
-      <div>
-        <div class="title">下架時間</div>
-        <mat-form-field appearance="fill">
-          <mat-label>Choose a date</mat-label>
-          <input matInput [matDatepicker]="endpicker">
-          <mat-hint>YYYY/MM/DD</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="endpicker"></mat-datepicker-toggle>
-          <mat-datepicker #endpicker></mat-datepicker>
-        </mat-form-field>
-      </div>
-    </div>
-
-
   </form>
 </div>

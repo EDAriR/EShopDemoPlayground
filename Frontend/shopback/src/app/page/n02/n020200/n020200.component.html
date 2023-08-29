@@ -2,11 +2,13 @@
   <span>目前位置：商品及分類 / 新增商品</span>
 </mat-toolbar>
 <div class="contain">
-  <div class="btn">
-    <button mat-raised-button (click)="goBack()">回上一頁</button>
+  <div class="title">
+    <h2>基本設定</h2>
+    <div>
+      <button mat-raised-button (click)="goBack()">回上一頁</button>
+    </div>
   </div>
 
-  <h2>基本設定</h2>
   <form class="searchStyle" [formGroup]="form">
     <div class="title">商品名稱</div>
     <mat-form-field appearance="outline">

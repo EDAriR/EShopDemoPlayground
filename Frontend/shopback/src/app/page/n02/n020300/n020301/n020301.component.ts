@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { ReturnDialogComponent } from 'src/app/share/dialog/return-dialog/return-dialog.component';
-import { CommodityStatus } from '../../n020100/commodityStatus';
 import { Location } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { ReturnDialogComponent } from 'src/app/share/dialog/return-dialog/return-dialog.component';
 
 @Component({
   selector: 'app-n020301',
@@ -11,28 +11,34 @@ import { Location } from '@angular/common';
   styleUrls: ['./n020301.component.scss']
 })
 export class N020301Component {
-
+  data: any; // 定義用於存儲資料的變數
+  tagString: string = '';
+  form: FormGroup;
 
   constructor(
     public dialog: MatDialog,
     private location: Location,
-  ) { }
-  ngOnInit(): void { }
+    private route: ActivatedRoute
+  ) {
+    this.form = new FormGroup({
+      name: new FormControl(''),
+      title: new FormControl(''),
+      describe: new FormControl(''),
+    });
+  }
 
-  form = new FormGroup({
-    name: new FormControl('test'),
-    title: new FormControl('eded'),
-    describe: new FormControl('ggggg'),
-  });
-
-
-
-  status: CommodityStatus[] = [
-    { value: '0', viewValue: '待上架' },
-    { value: '1', viewValue: '已上架' },
-    { value: '2', viewValue: '已隱藏' },
-    { value: '3', viewValue: '已下架' },
-  ];
+  ngOnInit(): void {
+    this.data = history.state.data; // 從路由狀態中獲取資料
+    if (this.data !== undefined) {
+      this.tagString = this.data.tag.join(', ');
+      const data = {
+        name: this.data.group,
+        title: this.tagString,
+        describe: this.data.message,
+      };
+      this.form.patchValue(data);
+    }
+  }
 
   goBack(): void {
     this.location.back();

@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,6 +14,7 @@ export class N020304Component {
 
   constructor(
     public dialog: MatDialog,
+    private location: Location,
   ) { }
   ngOnInit(): void { }
 
@@ -27,7 +29,9 @@ export class N020304Component {
     { value: '2', viewValue: 'test 123' },
     { value: '3', viewValue: 'test 223' },
   ];
-
+  goBack(): void {
+    this.location.back();
+  }
   openDialog(): any {
     this.dialog.open(N0203dialogComponent, {
       data: {
