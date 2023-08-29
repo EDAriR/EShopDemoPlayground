@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { CommodityStatus } from '../n020100/commodityStatus';
 import { Location } from '@angular/common';
+import { Const } from 'src/app/core/services/const';
 
 @Component({
   selector: 'app-n020200',
@@ -9,6 +10,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./n020200.component.scss']
 })
 export class N020200Component {
+  const = Const;
 
   constructor(private location: Location,) { }
 

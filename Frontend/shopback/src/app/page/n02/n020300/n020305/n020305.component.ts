@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { Const } from 'src/app/core/services/const';
 import { ReturnDialogComponent } from 'src/app/share/dialog/return-dialog/return-dialog.component';
 
 @Component({
@@ -18,6 +19,7 @@ export class N020305Component {
 
   data: any; // 定義用於存儲資料的變數
   tagString: string = '';
+  const = Const;
 
   ngOnInit() {
     this.data = history.state.data; // 從路由狀態中獲取資料

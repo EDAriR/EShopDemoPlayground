@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Const } from 'src/app/core/services/const';
 import { CommodityStatus } from '../../n020100/commodityStatus';
 import { N0203dialogComponent } from '../n0203dialog/n0203dialog.component';
 
@@ -11,6 +12,7 @@ import { N0203dialogComponent } from '../n0203dialog/n0203dialog.component';
   styleUrls: ['./n020304.component.scss']
 })
 export class N020304Component {
+  const = Const;
 
   constructor(
     public dialog: MatDialog,

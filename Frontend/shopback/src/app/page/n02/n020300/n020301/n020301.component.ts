@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { Const } from 'src/app/core/services/const';
 import { ReturnDialogComponent } from 'src/app/share/dialog/return-dialog/return-dialog.component';
 
 @Component({
@@ -11,9 +12,11 @@ import { ReturnDialogComponent } from 'src/app/share/dialog/return-dialog/return
   styleUrls: ['./n020301.component.scss']
 })
 export class N020301Component {
+[x: string]: any;
   data: any; // 定義用於存儲資料的變數
   tagString: string = '';
   form: FormGroup;
+  const = Const;
 
   constructor(
     public dialog: MatDialog,

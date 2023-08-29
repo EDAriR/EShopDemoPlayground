@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { FrontendConfigService } from 'src/app/core/services/api/frontend-config.service';
+import { Const } from 'src/app/core/services/const';
 import { ReturnDialogComponent } from 'src/app/share/dialog/return-dialog/return-dialog.component';
 
 @Component({
@@ -14,6 +15,7 @@ export class N070300Component {
   form: FormGroup;
   tagString: string = '';
   options: any;
+  const = Const;
 
   constructor(
     public dialog: MatDialog,

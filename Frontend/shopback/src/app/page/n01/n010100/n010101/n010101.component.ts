@@ -27,6 +27,9 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./n010101.component.scss'],
 })
 export class N010101Component implements OnInit {
+  const = Const;
+
+
   displayedColumns: string[] = ['position', 'name', 'price', 'quantity', 'subtotal', 'warehouse', 'revise'];
   dataSource = ELEMENT_DATA;
 

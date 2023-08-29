@@ -7,10 +7,9 @@ import { CustomValidator } from '../utils/validate';
 export class Const {
   public static apiResSuccessCode = '0000';
   public static save = '儲存';
+  public static back = '回上一頁';
+
   public static review = '送審';
-  public static productLabel = '選擇產品標籤';
-  public static group = '選擇群組';
-  public static customerLabel = '選擇客戶標籤';
   public static examinationPassed = '通過';
   public static release = '放行';
   public static auditFailure = '退件';
