@@ -1,0 +1,35 @@
+<mat-toolbar>
+  <span>目前位置：網站設計 / 首頁區塊設定</span>
+</mat-toolbar>
+<div class="contain">
+  <div class="title">
+    <h2>基本SEO設定</h2>
+  </div>
+  <form [formGroup]="form">
+    <div class="flex">
+
+      <h2>標題標籤</h2>
+      <mat-form-field appearance="outline">
+        <mat-label>標題標籤</mat-label>
+        <textarea matInput placeholder="請輸入標題標籤" formControlName="tag"></textarea>
+        <mat-hint align="start"><strong>建議25～30個中文字</strong> </mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <h2>網站內容描述</h2>
+      <mat-form-field appearance="outline">
+        <mat-label>網站內容描述</mat-label>
+        <textarea matInput placeholder="請輸入網站內容描述" formControlName="describe"></textarea>
+        <mat-hint align="start"><strong>建議65～80個中文字</strong> </mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <h2>網站關鍵字</h2>
+      <mat-form-field appearance="outline">
+        <mat-label>網站關鍵字</mat-label>
+        <textarea matInput placeholder="請輸入網站關鍵字" formControlName="keyWord"></textarea>
+        <mat-hint align="start"><strong>請使用 , 作標籤分隔</strong> </mat-hint>
+      </mat-form-field>
+    </div>
+  </form>
+</div>

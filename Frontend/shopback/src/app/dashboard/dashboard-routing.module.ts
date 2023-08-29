@@ -52,6 +52,21 @@ const routes: Routes = [
         path: 'n020400',
         loadChildren: () =>
           import('../page/n02/n020400/n020400.module').then((m) => m.N020400Module),
+      },
+      {
+        path: 'n070100',
+        loadChildren: () =>
+          import('../page/n07/n070100/n070100.module').then((m) => m.N070100Module),
+      },
+      {
+        path: 'n070200',
+        loadChildren: () =>
+          import('../page/n07/n070200/n070200.module').then((m) => m.N070200Module),
+      },
+      {
+        path: 'n070300',
+        loadChildren: () =>
+          import('../page/n07/n070300/n070300.module').then((m) => m.N070300Module),
       }
     ]
   }

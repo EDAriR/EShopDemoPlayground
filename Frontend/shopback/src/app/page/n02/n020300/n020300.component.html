@@ -3,8 +3,7 @@
 </mat-toolbar>
 <div class="contain">
   <div class="contents mat-elevation-z8">
-    <mat-expansion-panel expanded="{{ panelOpenState }}" (opened)="panelOpenState = true"
-      (closed)="panelOpenState = false">
+    <mat-expansion-panel expanded="{{ panelOpenState }}" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         {{ panelOpenState ? "收合" : "展開" }}查詢列
       </mat-expansion-panel-header>
