@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NGXLogger } from 'ngx-logger';
 import { Observable, of } from 'rxjs';
-import { ErrorMsg } from 'src/app/model/errorMsg';
 import { ErrorDialogComponent } from 'src/app/share/dialog/error-dialog/error-dialog.component';
-import { body } from '../../../model/body';
+import { body } from '../../model/body';
+import { ErrorMsg } from '../../model/errorMsg';
 import { Const } from '../const';
 
 /**

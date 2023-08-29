@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { Title } from '@angular/platform-browser';
+import { FrontendConfigService } from 'src/app/core/services/api/frontend-config.service';
 import { ReturnDialogComponent } from 'src/app/share/dialog/return-dialog/return-dialog.component';
 
 @Component({
@@ -13,9 +13,11 @@ export class N070300Component {
   data: any; // 定義用於存儲資料的變數
   form: FormGroup;
   tagString: string = '';
+  options: any;
 
   constructor(
     public dialog: MatDialog,
+    public fcSvc: FrontendConfigService
   ) {
     this.form = new FormGroup({
       name: new FormControl(''),
@@ -25,16 +27,18 @@ export class N070300Component {
   }
 
   ngOnInit(): void {
-    this.data = history.state.data; // 從路由狀態中獲取資料
-    if (this.data !== undefined) {
-      this.tagString = this.data.tag.join(', ');
-      const data = {
-        name: this.data.group,
-        title: this.tagString,
-        describe: this.data.message,
-      };
-      this.form.patchValue(data);
-    }
+    // 從 API 中獲取資料
+    // this.fcSvc.metaInquiry({}).subscribe((result) => {
+    //   if (result !== undefined) {
+    //     const data = {
+    //       title: result.title,
+    //       description: result.description,
+    //       keywords: result.keywords.join(', '),
+    //     };
+    //     this.form.patchValue(data);
+    //   }
+    // });
+
   }
 
 

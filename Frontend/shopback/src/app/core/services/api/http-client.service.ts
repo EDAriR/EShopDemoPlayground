@@ -1,10 +1,9 @@
-import { Const } from 'src/app/core/services/const';
-import { HttpClient, HttpParams, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, pluck, retry, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { body } from '../../../model/body';
+import { body } from '../../model/body';
 import { ErrorService } from './error.service';
 
 @Injectable({
