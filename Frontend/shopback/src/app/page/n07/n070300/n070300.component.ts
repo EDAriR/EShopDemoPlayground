@@ -14,7 +14,6 @@ export class N070300Component {
   data: any; // 定義用於存儲資料的變數
   form: FormGroup;
   tagString: string = '';
-  options: any;
   const = Const;
 
   constructor(

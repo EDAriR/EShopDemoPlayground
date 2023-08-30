@@ -6,12 +6,14 @@ import { ShareMaterialModule } from 'src/app/share-material/share-material.modul
 import { ShareModule } from 'src/app/share/share.module';
 import { N070200RoutingModule } from './n070200-routing.module';
 import { N070200Component } from './n070200.component';
+import { N070201Component } from './n070201/n070201.component';
 
 
 
 @NgModule({
   declarations: [
-    N070200Component
+    N070200Component,
+    N070201Component
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,7 @@ import { N070200Component } from './n070200.component';
     PipeModule,
     ShareModule,
     ShareMaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class N070200Module { }

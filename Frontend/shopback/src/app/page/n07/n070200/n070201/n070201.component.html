@@ -1,0 +1,62 @@
+<form [formGroup]="myForm">
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="preview">
+      <th mat-header-cell *matHeaderCellDef> 圖片預覽 </th>
+      <td mat-cell *matCellDef="let element">
+        <img src={{element.preview}} />
+        <div>{{element.name}} </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="sort">
+      <th mat-header-cell *matHeaderCellDef style="width: 80px;"> 排序 </th>
+      <td mat-cell *matCellDef="let element; let i = index" style=" max-width: 80px;">
+        <mat-form-field>
+          <input matInput [formControlName]="'sort' + i" [value]="element.sort" type="number" />
+        </mat-form-field>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="directions">
+      <th mat-header-cell *matHeaderCellDef> 說明 </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <mat-form-field>
+          <textarea matInput [formControlName]="'directions' + i" [value]="element.directions"></textarea>
+        </mat-form-field>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="link">
+      <th mat-header-cell *matHeaderCellDef> 連結 </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <mat-form-field>
+          <textarea matInput [formControlName]="'link' + i" [value]="element.link"></textarea>
+        </mat-form-field>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> 狀態 </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <!-- <mat-form-field> -->
+        <!-- <input matInput [formControlName]="'status' + i" [value]="element.status" /> -->
+        關閉<mat-slide-toggle [formControlName]="'status' + i">開啟</mat-slide-toggle>
+
+        <!-- </mat-form-field> -->
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="operate">
+      <th mat-header-cell *matHeaderCellDef> 操作 </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="warn" (click)="updatePic(element.id)">刪除</button>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</form>

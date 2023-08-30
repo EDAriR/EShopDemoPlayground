@@ -4,6 +4,38 @@
 <div class="contain">
   <div class="title">
     <h2>首頁輪播設定</h2>
+    <button mat-raised-button color="primary" (click)="openDialog()" style="margin-right: 10px;">{{const.save}}</button>
   </div>
+  <form [formGroup]="form">
+    <div class="flex">
+      <h2>首頁輪播</h2>
+      <mat-radio-group formControlName="carousel" (change)="checkSelectedValue()">
+        <mat-radio-button value="1">插入HTML</mat-radio-button>
+        <mat-radio-button value="2">開啟輪播效果</mat-radio-button>
+        <mat-radio-button value="3">關閉</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <ng-container *ngIf="isOption1Selected === 1">
+      <div class="flex">
+        <h2>插入HTML</h2>
+        <mat-form-field appearance="outline">
+          <mat-label>插入HTML</mat-label>
+          <textarea matInput placeholder="請自由編輯內容" formControlName="addHtml"></textarea>
+          <mat-hint align="start"><strong>可輸入html、css程式碼</strong> </mat-hint>
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="isOption1Selected === 2">
+      <div class="flex">
+        <h2>上傳圖片</h2>
+        <div>
+          <app-upload-pic></app-upload-pic>
+        </div>
+      </div>
+      <div class="flex">
+        <h2>編輯圖片</h2>
+        <app-n070201 style="width: 100%;"></app-n070201>
+      </div>
+    </ng-container>
+  </form>
 </div>
-<

@@ -14,6 +14,7 @@ import { FormTextComponent } from './form-text/form-text.component';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 import { TableComponent } from './table/table.component';
 import { UploadCsvComponent } from './upload-csv/upload-csv.component';
+import { UploadPicComponent } from './upload-pic/upload-pic.component';
 import { ValidatorInputComponent } from './validator-input/validator-input.component';
 
 @NgModule({
@@ -26,7 +27,9 @@ import { ValidatorInputComponent } from './validator-input/validator-input.compo
     UploadCsvComponent,
     ReviewDialogComponent,
     ReturnDialogComponent,
-    TableComponent
+    TableComponent,
+    UploadCsvComponent,
+    UploadPicComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +47,9 @@ import { ValidatorInputComponent } from './validator-input/validator-input.compo
     BreadcrumbsComponent,
     FormTextComponent,
     ValidatorInputComponent,
-    MatCheckboxModule
+    MatCheckboxModule,
+    UploadCsvComponent,
+    UploadPicComponent
   ],
 })
 export class ShareModule {}

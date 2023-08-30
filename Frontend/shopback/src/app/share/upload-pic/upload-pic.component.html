@@ -1,0 +1,18 @@
+<div class="flex">
+  <div class="large-box">
+    <input #fileInput type="file" style="display: none;" (change)="onFileSelected($event)" multiple accept="image/*">
+    <button mat-raised-button (click)="triggerFileInput()">選擇圖片</button>
+  </div>
+  <div class="large-box">
+    <div *ngFor="let file of selectedFiles">
+      {{ file.name }}
+    </div>
+  </div>
+  <div class="large-box">
+    <div *ngIf="this.selectedFiles.length > 0">
+      <button mat-raised-button color="primary" (click)="uploadImages()">
+        確認上傳
+      </button>
+    </div>
+  </div>
+</div>
