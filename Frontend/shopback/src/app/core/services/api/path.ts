@@ -1,19 +1,19 @@
-import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class PathService {
+
+export const PathService = {
   /*訂單管理 / 網路訂單 / 編輯頁*/
-  static OnlineOrderEditor = 'dashboard/n010100/n010101';
+  OnlineOrderEditor: 'dashboard/n010100/n010101',
 
   /*商品管理 / 新增商品*/
-  static NewProduct = 'dashboard/n020100/n020101';
-  static portfolioRiskLevelNew: any;
-  static portfolioRiskLevelMaintenance: any;
+  NewProduct: 'dashboard/n020100/n020101',
+  // portfolioRiskLevelNew: any,
+  // portfolioRiskLevelMaintenance: any,
 
   //for ed
-  static add = 'dashboard/n020300/n020301';
+  add: 'dashboard/n020300/n020301',
 
-  constructor() { }
+  /** 網站設計 / 最新消息 */
+  latestNewsAdd: '/n070101',
+  latestNews: 'dashboard/n070100/n070101',
+
 }

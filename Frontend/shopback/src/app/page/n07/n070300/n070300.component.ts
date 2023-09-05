@@ -21,9 +21,9 @@ export class N070300Component {
     public fcSvc: FrontendConfigService
   ) {
     this.form = new FormGroup({
-      name: new FormControl(''),
-      title: new FormControl(''),
+      tag: new FormControl(''),
       describe: new FormControl(''),
+      keyWord: new FormControl(''),
     });
   }
 

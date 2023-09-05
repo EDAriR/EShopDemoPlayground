@@ -12,7 +12,6 @@ import { ReturnDialogComponent } from 'src/app/share/dialog/return-dialog/return
   styleUrls: ['./n020301.component.scss']
 })
 export class N020301Component {
-[x: string]: any;
   data: any; // 定義用於存儲資料的變數
   tagString: string = '';
   form: FormGroup;
@@ -32,6 +31,7 @@ export class N020301Component {
 
   ngOnInit(): void {
     this.data = history.state.data; // 從路由狀態中獲取資料
+    console.log()
     if (this.data !== undefined) {
       this.tagString = this.data.tag.join(', ');
       const data = {

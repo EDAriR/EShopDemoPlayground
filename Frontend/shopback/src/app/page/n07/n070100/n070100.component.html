@@ -1,7 +1,69 @@
 <mat-toolbar>
-  <span>目前位置：網站設計 / 首頁區塊設定</span>
+  <span>目前位置：網站設計 / 最新消息</span>
 </mat-toolbar>
 <div class="contain">
   <div class="title">
-    <h2>首頁區塊設定</h2>
+    <h2>最新消息</h2>
+    <button mat-raised-button color="primary" routerLink="/dashboard/n070100/n070101">新增消息</button>
   </div>
+  <div class="title">
+    <button mat-raised-button color="warn" (click)="deleteSelected()">刪除消息</button>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? toggleAllRows() : null" [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- index Column -->
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef nowrap="nowrap"> No. </th>
+      <td mat-cell *matCellDef="let element; let i = index"> {{ i + 1 }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="releaseDate">
+      <th mat-header-cell *matHeaderCellDef> 發佈日期 </th>
+      <td mat-cell *matCellDef="let element" (click)="navigateToEditPage(element)"> {{element.releaseDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> 標題 </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="clicks">
+      <th mat-header-cell *matHeaderCellDef> 點擊率 </th>
+      <td mat-cell *matCellDef="let element"> {{element.clicks}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="placeTop">
+      <th mat-header-cell *matHeaderCellDef> 置頂 </th>
+      <td mat-cell *matCellDef="let element"> {{element.placeTop}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> 編輯 </th>
+      <td mat-cell *matCellDef="let element"> 123</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+
+
+    <!-- Row shown when there is no matching data that will be provided to the wrapper table. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="5" align="center" valign="center" style="height: 140px;">查無資料</td>
+    </tr>
+  </table>
+
+</div>

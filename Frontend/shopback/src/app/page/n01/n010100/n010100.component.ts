@@ -3,9 +3,8 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { PathService } from 'src/app/core/services/api/path';
-import { saveApiId } from 'src/app/core/utils/storage';
 import { DashboardDataService } from 'src/app/dashboard/dashboard-data-service.service';
 
 @Component({

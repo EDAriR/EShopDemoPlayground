@@ -1,1 +1,32 @@
-<p>n070101 works!</p>
+<mat-toolbar>
+  <span>目前位置：網站設計 / 最新消息</span>
+</mat-toolbar>
+<div class="contain">
+  <div class="title">
+    <h2>最新消息</h2>
+    <div>
+      <button mat-raised-button color="primary" (click)="openDialog()" style="margin-right: 10px;">{{const.save}}</button>
+      <button mat-raised-button (click)="goBack()">{{const.back}}</button>
+    </div>
+    </div>
+
+    <form class="searchStyle" [formGroup]="form">
+      <div class="title">群組名稱</div>
+      <mat-form-field appearance="outline">
+        <mat-label>群組名稱</mat-label>
+        <input matInput placeholder="請輸入群組名稱" formControlName="name" />
+      </mat-form-field>
+
+      <div class="title">tag</div>
+      <mat-form-field appearance="outline">
+        <mat-label>tag</mat-label>
+        <input matInput placeholder="請輸入tag" formControlName="title" />
+      </mat-form-field>
+
+      <div class="title">訊息</div>
+      <mat-form-field appearance="outline">
+        <mat-label>訊息</mat-label>
+        <textarea matInput placeholder="請輸入訊息" formControlName="describe"></textarea>
+      </mat-form-field>
+    </form>
+  </div>
