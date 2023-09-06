@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
@@ -12,10 +12,15 @@ import { ReturnDialogComponent } from 'src/app/share/dialog/return-dialog/return
   styleUrls: ['./n070101.component.scss']
 })
 export class N070101Component {
+  @ViewChild('fileInput') fileInput!: ElementRef;
+  @ViewChild('files') files!: ElementRef;
+
   data: any; // 定義用於存儲資料的變數
   tagString: string = '';
   form: FormGroup;
   const = Const;
+  selectedPic: File | null = null;
+  selectedFiles: File | null = null;
 
   constructor(
     public dialog: MatDialog,
@@ -23,9 +28,14 @@ export class N070101Component {
     private route: ActivatedRoute
   ) {
     this.form = new FormGroup({
-      name: new FormControl(''),
       title: new FormControl(''),
-      describe: new FormControl(''),
+      content: new FormControl(''),
+      hot: new FormControl('2'),
+      disable: new FormControl('2'),
+      startPicker: new FormControl(''),
+      endPicker: new FormControl(''),
+      file: new FormControl(''),
+      pic: new FormControl(''),
     });
   }
 
@@ -37,10 +47,43 @@ export class N070101Component {
       const data = {
         name: this.data.group,
         title: this.tagString,
-        describe: this.data.message,
+        hot: this.data.message,
       };
       this.form.patchValue(data);
     }
+  }
+
+  // 圖片預覽
+  private showImagePreview(file: File) {
+    const reader = new FileReader();
+    reader.onload = (event: any) => {
+      console.log(event.target.result)
+      this.selectedPic = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  triggerPicFileInput(): void {
+    this.fileInput.nativeElement.click();
+  }
+
+  onPicChange(input: any) {
+    if (input.files.length > 0) {
+      this.selectedPic = input.files[0];
+      if (this.selectedPic != null) {
+        this.showImagePreview(this.selectedPic);
+      }
+    } else {
+      this.selectedPic = null;
+    }
+  }
+
+  triggerFileInput(): void {
+    this.files.nativeElement.click();
+  }
+
+  onFileChange(event: any): void {
+    this.selectedFiles = event.target.files;
   }
 
   goBack(): void {

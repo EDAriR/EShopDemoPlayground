@@ -77,7 +77,7 @@ export const TW_FORMATS = {
     MatTreeModule,
     MatGridListModule,
     MatNativeDateModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'zh-TW' },

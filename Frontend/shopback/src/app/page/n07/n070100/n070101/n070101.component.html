@@ -5,28 +5,78 @@
   <div class="title">
     <h2>最新消息</h2>
     <div>
-      <button mat-raised-button color="primary" (click)="openDialog()" style="margin-right: 10px;">{{const.save}}</button>
+      <button mat-raised-button color="primary" (click)="openDialog()"
+        style="margin-right: 10px;">{{const.save}}</button>
       <button mat-raised-button (click)="goBack()">{{const.back}}</button>
     </div>
+  </div>
+
+  <form class="searchStyle" [formGroup]="form">
+    <div class="flex">
+      <h2>標題</h2>
+      <mat-form-field appearance="outline">
+        <mat-label>標題</mat-label>
+        <input matInput placeholder="請輸入標題" formControlName="title" />
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <h2>內文</h2>
+      <mat-form-field appearance="outline">
+        <mat-label>內文</mat-label>
+        <textarea matInput placeholder="請輸入內文" formControlName="content"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <h2>上傳封面圖片</h2>
+      <input #fileInput type="file" style="display: none;" (change)="onPicChange(fileInput)" multiple accept="image/*">
+      <button mat-raised-button (click)="triggerPicFileInput()">選擇圖片</button>
+      <img [src]="selectedPic" *ngIf="selectedPic" alt="Preview">
     </div>
 
-    <form class="searchStyle" [formGroup]="form">
-      <div class="title">群組名稱</div>
-      <mat-form-field appearance="outline">
-        <mat-label>群組名稱</mat-label>
-        <input matInput placeholder="請輸入群組名稱" formControlName="name" />
-      </mat-form-field>
+    <div class="flex">
+      <h2>是否熱門</h2>
+      <mat-radio-group formControlName="hot">
+        <mat-radio-button value="1">是</mat-radio-button>
+        <mat-radio-button value="2">否</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="flex">
+      <h2>是否隱藏</h2>
+      <mat-radio-group formControlName="disable">
+        <mat-radio-button value="1">是</mat-radio-button>
+        <mat-radio-button selected value="2">否</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="flex">
+      <h2>下載檔案</h2>
+      <input #files type="file" style="display: none;" (change)="onFileChange($event)" multiple>
+      <button mat-raised-button (click)="triggerFileInput()">選擇檔案</button>
+      <div class="filename">
+        <div *ngFor="let file of selectedFiles">
+          {{ file.name }}
+        </div>
+      </div>
+    </div>
 
-      <div class="title">tag</div>
-      <mat-form-field appearance="outline">
-        <mat-label>tag</mat-label>
-        <input matInput placeholder="請輸入tag" formControlName="title" />
+    <div class="flex">
+      <h2>發佈日期</h2>
+      <mat-form-field>
+        <mat-label>選擇發佈日期</mat-label>
+        <input matInput [matDatepicker]="startPicker">
+        <mat-hint>YYYY/MM/DD</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
       </mat-form-field>
-
-      <div class="title">訊息</div>
-      <mat-form-field appearance="outline">
-        <mat-label>訊息</mat-label>
-        <textarea matInput placeholder="請輸入訊息" formControlName="describe"></textarea>
+    </div>
+    <div class="flex">
+      <h2>下架日期</h2>
+      <mat-form-field>
+        <mat-label>選擇下架日期</mat-label>
+        <input matInput [matDatepicker]="endPicker">
+        <mat-hint>YYYY/MM/DD</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
       </mat-form-field>
-    </form>
-  </div>
+    </div>
+  </form>
+</div>
